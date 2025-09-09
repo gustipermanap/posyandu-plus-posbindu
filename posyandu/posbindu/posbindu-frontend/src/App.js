@@ -18,10 +18,23 @@ function App() {
   const { isLoggedIn, loggedInUser, handleLogin, handleLogout, fetchUserData } = useAuth();
   const [showDropdown, setShowDropdown] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isInitializing, setIsInitializing] = useState(true);
+
+  // Debug logging
+  console.log("DEBUG: App render - isLoggedIn:", isLoggedIn, "loggedInUser:", !!loggedInUser, "isInitializing:", isInitializing);
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
   };
+
+  // Handle initialization
+  useEffect(() => {
+    if (isLoggedIn && loggedInUser) {
+      setIsInitializing(false);
+    } else if (!isLoggedIn) {
+      setIsInitializing(false);
+    }
+  }, [isLoggedIn, loggedInUser]);
 
   // Menutup dropdown ketika mengklik di luar area dropdown
   useEffect(() => {
@@ -40,7 +53,11 @@ function App() {
   return (
     <Router>
       <div className="App">
-        {!isLoggedIn ? (
+        {isInitializing ? (
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', fontSize: '18px' }}>
+            Memuat...
+          </div>
+        ) : !isLoggedIn || !loggedInUser ? (
           <LoginPage onLogin={handleLogin} />
         ) : (
           <>

@@ -23,15 +23,23 @@ function LoginPage({ onLogin }) {
     setError('');
 
     try {
-      const response = await axios.post('http://localhost:8080/api/token/', {
+      console.log("DEBUG: Attempting login with username:", formData.username);
+      const response = await axios.post('/api/token/', {
         username: formData.username,
         password: formData.password,
+      });
+      console.log("DEBUG: Login response received:", { 
+        hasAccess: !!response.data.access, 
+        hasRefresh: !!response.data.refresh,
+        status: response.status 
       });
       // Panggil onLogin dengan access dan refresh token yang diterima
       onLogin(response.data.access, response.data.refresh);
     } catch (err) {
+      console.error("DEBUG: Login error details:", err);
+      console.error("DEBUG: Error response:", err.response?.data);
+      console.error("DEBUG: Error status:", err.response?.status);
       setError('Login gagal. Periksa username dan password Anda.');
-      console.error('Login error:', err);
     } finally {
       setLoading(false);
     }
