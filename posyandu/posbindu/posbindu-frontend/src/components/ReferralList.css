@@ -1,0 +1,246 @@
+/* Referral List Styles */
+.referral-list {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.referral-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.referral-header h2 {
+  color: #2c3e50;
+  margin: 0;
+}
+
+.referral-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* Filters Section */
+.filters-section {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 15px;
+  align-items: end;
+}
+
+.filter-input,
+.filter-select {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.filter-input:focus,
+.filter-select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+}
+
+/* Referrals Grid */
+.referrals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  gap: 20px;
+}
+
+.referral-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.referral-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.referral-card-header {
+  background: #f8f9fa;
+  padding: 15px 20px;
+  border-bottom: 1px solid #e9ecef;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.referral-card-header h3 {
+  color: #2c3e50;
+  margin: 0;
+  font-size: 18px;
+}
+
+.referral-badges {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.status-badge {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.status-badge.draft {
+  background: #f8f9fa;
+  color: #6c757d;
+}
+
+.status-badge.pending {
+  background: #fef9e7;
+  color: #f39c12;
+}
+
+.status-badge.accepted {
+  background: #d5f4e6;
+  color: #27ae60;
+}
+
+.status-badge.completed {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.status-badge.rejected {
+  background: #fadbd8;
+  color: #e74c3c;
+}
+
+.priority-badge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.priority-badge.low {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.priority-badge.medium {
+  background: #fef9e7;
+  color: #f39c12;
+}
+
+.priority-badge.high {
+  background: #fadbd8;
+  color: #e74c3c;
+}
+
+.priority-badge.emergency {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.referral-card-body {
+  padding: 20px;
+}
+
+.referral-info {
+  margin-bottom: 15px;
+}
+
+.referral-info p {
+  margin: 5px 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.referral-info strong {
+  color: #2c3e50;
+}
+
+.referral-reason,
+.referral-followup,
+.referral-result,
+.referral-notes {
+  margin-bottom: 15px;
+}
+
+.referral-reason h4,
+.referral-followup h4,
+.referral-result h4,
+.referral-notes h4 {
+  color: #2c3e50;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.referral-reason p,
+.referral-followup p,
+.referral-result p,
+.referral-notes p {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.referral-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .referral-header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+  }
+  
+  .filters {
+    grid-template-columns: 1fr;
+  }
+  
+  .referrals-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .referral-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .referral-badges {
+    align-self: flex-end;
+  }
+  
+  .referral-actions {
+    justify-content: stretch;
+  }
+  
+  .referral-actions .btn {
+    flex: 1;
+  }
+}

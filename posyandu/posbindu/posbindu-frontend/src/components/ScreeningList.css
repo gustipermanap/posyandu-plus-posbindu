@@ -1,0 +1,297 @@
+/* Screening List Styles */
+.screening-list {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.screening-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.screening-header h2 {
+  color: #2c3e50;
+  margin: 0;
+}
+
+.screening-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.tab {
+  flex: 1;
+  padding: 15px 20px;
+  border: none;
+  background: #f8f9fa;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.tab:hover {
+  background: #e9ecef;
+}
+
+.tab.active {
+  background: #667eea;
+  color: white;
+}
+
+/* Filters Section */
+.filters-section {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 15px;
+  align-items: end;
+}
+
+.filter-input,
+.filter-select {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.filter-input:focus,
+.filter-select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+}
+
+/* Visits Grid */
+.visits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 20px;
+}
+
+.visit-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.visit-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.visit-card-header {
+  background: #f8f9fa;
+  padding: 15px 20px;
+  border-bottom: 1px solid #e9ecef;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.visit-card-header h3 {
+  color: #2c3e50;
+  margin: 0;
+  font-size: 18px;
+}
+
+.status-badge {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.status-badge.draft {
+  background: #fef9e7;
+  color: #f39c12;
+}
+
+.status-badge.verified {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.status-badge.completed {
+  background: #d5f4e6;
+  color: #27ae60;
+}
+
+.visit-card-body {
+  padding: 20px;
+}
+
+.visit-info p {
+  margin: 5px 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.visit-info strong {
+  color: #2c3e50;
+}
+
+.visit-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 15px;
+}
+
+/* Anamnesis Grid */
+.anamnesis-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  gap: 20px;
+}
+
+.anamnesis-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.anamnesis-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.anamnesis-card-header {
+  background: #f8f9fa;
+  padding: 15px 20px;
+  border-bottom: 1px solid #e9ecef;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.anamnesis-card-header h3 {
+  color: #2c3e50;
+  margin: 0;
+  font-size: 18px;
+}
+
+.visit-badge {
+  background: #e3f2fd;
+  color: #1976d2;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.anamnesis-card-body {
+  padding: 20px;
+}
+
+.anamnesis-info {
+  margin-bottom: 15px;
+}
+
+.anamnesis-info p {
+  margin: 8px 0;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.anamnesis-info strong {
+  color: #2c3e50;
+}
+
+.anamnesis-lifestyle {
+  margin-bottom: 15px;
+}
+
+.anamnesis-lifestyle h4 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.lifestyle-factors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.lifestyle-factor {
+  background: #f8f9fa;
+  color: #666;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 12px;
+  border-left: 3px solid #667eea;
+}
+
+.anamnesis-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .screening-header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+  }
+  
+  .filters {
+    grid-template-columns: 1fr;
+  }
+  
+  .visits-grid,
+  .anamnesis-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .visit-card-header,
+  .anamnesis-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .visit-actions,
+  .anamnesis-actions {
+    justify-content: stretch;
+  }
+  
+  .visit-actions .btn,
+  .anamnesis-actions .btn {
+    flex: 1;
+  }
+}

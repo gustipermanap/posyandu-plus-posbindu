@@ -1,0 +1,252 @@
+/* Intervention List Styles */
+.intervention-list {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.intervention-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.intervention-header h2 {
+  color: #2c3e50;
+  margin: 0;
+}
+
+.intervention-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* Filters Section */
+.filters-section {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 15px;
+  align-items: end;
+}
+
+.filter-input,
+.filter-select {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.filter-input:focus,
+.filter-select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+}
+
+/* Interventions Grid */
+.interventions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  gap: 20px;
+}
+
+.intervention-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.intervention-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.intervention-card-header {
+  background: #f8f9fa;
+  padding: 15px 20px;
+  border-bottom: 1px solid #e9ecef;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.intervention-card-header h3 {
+  color: #2c3e50;
+  margin: 0;
+  font-size: 18px;
+}
+
+.intervention-badges {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.status-badge {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.status-badge.draft {
+  background: #f8f9fa;
+  color: #6c757d;
+}
+
+.status-badge.active {
+  background: #d5f4e6;
+  color: #27ae60;
+}
+
+.status-badge.completed {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.status-badge.cancelled {
+  background: #fadbd8;
+  color: #e74c3c;
+}
+
+.type-badge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.type-badge.education {
+  background: #e8f5e8;
+  color: #27ae60;
+}
+
+.type-badge.counseling {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.type-badge.therapy {
+  background: #f3e5f5;
+  color: #7b1fa2;
+}
+
+.type-badge.monitoring {
+  background: #fef9e7;
+  color: #f39c12;
+}
+
+.type-badge.other {
+  background: #f8f9fa;
+  color: #6c757d;
+}
+
+.intervention-card-body {
+  padding: 20px;
+}
+
+.intervention-info {
+  margin-bottom: 15px;
+}
+
+.intervention-info p {
+  margin: 5px 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.intervention-info strong {
+  color: #2c3e50;
+}
+
+.intervention-description,
+.intervention-target,
+.intervention-method,
+.intervention-result,
+.intervention-evaluation,
+.intervention-followup {
+  margin-bottom: 15px;
+}
+
+.intervention-description h4,
+.intervention-target h4,
+.intervention-method h4,
+.intervention-result h4,
+.intervention-evaluation h4,
+.intervention-followup h4 {
+  color: #2c3e50;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.intervention-description p,
+.intervention-target p,
+.intervention-method p,
+.intervention-result p,
+.intervention-evaluation p,
+.intervention-followup p {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.intervention-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .intervention-header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+  }
+  
+  .filters {
+    grid-template-columns: 1fr;
+  }
+  
+  .interventions-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .intervention-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .intervention-badges {
+    align-self: flex-end;
+  }
+  
+  .intervention-actions {
+    justify-content: stretch;
+  }
+  
+  .intervention-actions .btn {
+    flex: 1;
+  }
+}

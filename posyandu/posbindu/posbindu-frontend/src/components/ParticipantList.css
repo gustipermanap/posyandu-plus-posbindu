@@ -1,0 +1,243 @@
+/* Participant List Styles */
+.participant-list {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.participant-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.participant-header h2 {
+  color: #2c3e50;
+  margin: 0;
+}
+
+.participant-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* Filters Section */
+.filters-section {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 15px;
+  align-items: end;
+}
+
+.filter-input,
+.filter-select {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.filter-input:focus,
+.filter-select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+}
+
+/* Participant Grid */
+.participant-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 20px;
+}
+
+.participant-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.participant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.participant-card-header {
+  background: #f8f9fa;
+  padding: 15px 20px;
+  border-bottom: 1px solid #e9ecef;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.participant-card-header h3 {
+  color: #2c3e50;
+  margin: 0;
+  font-size: 18px;
+}
+
+.participant-badges {
+  display: flex;
+  gap: 8px;
+}
+
+.risk-badge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.risk-badge.low {
+  background: #d5f4e6;
+  color: #27ae60;
+}
+
+.risk-badge.medium {
+  background: #fef9e7;
+  color: #f39c12;
+}
+
+.risk-badge.high {
+  background: #fadbd8;
+  color: #e74c3c;
+}
+
+.age-badge {
+  background: #e3f2fd;
+  color: #1976d2;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.participant-card-body {
+  padding: 20px;
+}
+
+.participant-info {
+  margin-bottom: 15px;
+}
+
+.participant-info p {
+  margin: 5px 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.participant-info strong {
+  color: #2c3e50;
+}
+
+.participant-health {
+  margin-bottom: 15px;
+}
+
+.participant-health h4 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.risk-factors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.risk-factor {
+  padding: 3px 8px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.risk-factor.smoking {
+  background: #fadbd8;
+  color: #e74c3c;
+}
+
+.risk-factor.alcohol {
+  background: #fef9e7;
+  color: #f39c12;
+}
+
+.risk-factor.diabetes {
+  background: #e8f5e8;
+  color: #27ae60;
+}
+
+.risk-factor.hypertension {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.risk-factor.stroke {
+  background: #f3e5f5;
+  color: #7b1fa2;
+}
+
+.risk-factor.heart {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.participant-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .participant-header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+  }
+  
+  .filters {
+    grid-template-columns: 1fr;
+  }
+  
+  .participant-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .participant-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .participant-badges {
+    align-self: flex-end;
+  }
+  
+  .participant-actions {
+    justify-content: stretch;
+  }
+  
+  .participant-actions .btn {
+    flex: 1;
+  }
+}

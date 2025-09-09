@@ -1,0 +1,116 @@
+==============================
+CARA PASANG EXTENSION FIREFOX
+==============================
+
+Langkah-langkah install extension Firefox secara manual:
+
+1. SIAPKAN FOLDER EXTENSION
+
+   Pastikan kamu sudah punya folder extension, misalnya:
+     my-multidownloader/
+       ├── manifest.json
+       ├── background.js
+       ├── popup.html
+       ├── popup.js
+       └── icons/
+              └── icon.png
+
+   File manifest.json adalah file WAJIB.
+
+-------------------------------------------
+
+2. BUKA FIREFOX
+
+   Jalankan browser Firefox di komputer kamu.
+
+-------------------------------------------
+
+3. BUKA HALAMAN DEBUG ADD-ONS
+
+   - Ketik di address bar Firefox:
+     
+         about:debugging
+
+   - Tekan Enter.
+
+   - Pilih menu:
+     
+         This Firefox
+
+   (atau kalau pakai bahasa Indonesia: "Firefox Ini")
+
+-------------------------------------------
+
+4. KLIK TOMBOL:
+
+       Load Temporary Add-on...
+
+   (atau dalam bahasa Indonesia:
+    "Muat Add-on Sementara...")
+
+-------------------------------------------
+
+5. PILIH FILE manifest.json
+
+   - Setelah klik tombol, akan muncul file picker.
+   - Masuk ke folder extension-mu.
+   - Klik file:
+
+         manifest.json
+
+   - Klik Open.
+
+-------------------------------------------
+
+6. EXTENSION TERPASANG
+
+   - Jika berhasil, extension akan muncul di daftar Add-on.
+   - Juga muncul icon extension di toolbar Firefox.
+
+-------------------------------------------
+
+7. MENJALANKAN EXTENSION
+
+   - Klik icon extension di toolbar Firefox.
+   - Akan muncul popup (misalnya popup.html).
+   - Gunakan tombol yang tersedia (contoh: Scan Links, Download All).
+
+-------------------------------------------
+
+CATATAN:
+
+- Extension yang dimuat secara temporary akan hilang
+  kalau kamu menutup Firefox.
+  
+- Untuk install permanen:
+  - Buat file XPI (zip dari folder extension)
+  - Daftarkan extension ke AMO (addons.mozilla.org)
+  
+- Saat testing, gunakan temporary install
+  supaya cepat diuji.
+
+-------------------------------------------
+
+SELESAI
+
+
+
+
+
+
+
+icon.png (gambar ikon ukuran 48x48 px)
+
+Uji Extension
+
+    Buka Firefox → about:debugging
+
+    Klik This Firefox
+
+    Klik Load Temporary Add-on
+
+    Pilih manifest.json
+
+    Extension muncul di toolbar
+
+Klik ikon → coba scan link → klik download all.

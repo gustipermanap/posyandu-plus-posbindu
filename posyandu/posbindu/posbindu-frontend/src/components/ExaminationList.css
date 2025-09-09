@@ -1,0 +1,329 @@
+/* Examination List Styles */
+.examination-list {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.examination-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.examination-header h2 {
+  color: #2c3e50;
+  margin: 0;
+}
+
+.examination-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.tab {
+  flex: 1;
+  padding: 15px 20px;
+  border: none;
+  background: #f8f9fa;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.tab:hover {
+  background: #e9ecef;
+}
+
+.tab.active {
+  background: #667eea;
+  color: white;
+}
+
+/* Filters Section */
+.filters-section {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 15px;
+  align-items: end;
+}
+
+.filter-input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.filter-input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+}
+
+/* Vital Signs Grid */
+.vital-signs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  gap: 20px;
+}
+
+.vital-signs-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.vital-signs-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.vital-signs-card-header {
+  background: #f8f9fa;
+  padding: 15px 20px;
+  border-bottom: 1px solid #e9ecef;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vital-signs-card-header h3 {
+  color: #2c3e50;
+  margin: 0;
+  font-size: 18px;
+}
+
+.bp-status {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.bp-status.normal {
+  background: #d5f4e6;
+  color: #27ae60;
+}
+
+.bp-status.medium {
+  background: #fef9e7;
+  color: #f39c12;
+}
+
+.bp-status.high {
+  background: #fadbd8;
+  color: #e74c3c;
+}
+
+.bp-status.critical {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.vital-signs-card-body {
+  padding: 20px;
+}
+
+.vital-signs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.vital-sign-item {
+  text-align: center;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+}
+
+.vital-sign-item h4 {
+  color: #7f8c8d;
+  font-size: 12px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.vital-sign-value {
+  font-size: 18px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.vital-signs-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+/* Anthropometry Grid */
+.anthropometry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  gap: 20px;
+}
+
+.anthropometry-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.anthropometry-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.anthropometry-card-header {
+  background: #f8f9fa;
+  padding: 15px 20px;
+  border-bottom: 1px solid #e9ecef;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.anthropometry-card-header h3 {
+  color: #2c3e50;
+  margin: 0;
+  font-size: 18px;
+}
+
+.bmi-category {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.bmi-category.normal {
+  background: #d5f4e6;
+  color: #27ae60;
+}
+
+.bmi-category.underweight {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.bmi-category.overweight {
+  background: #fef9e7;
+  color: #f39c12;
+}
+
+.bmi-category.obese {
+  background: #fadbd8;
+  color: #e74c3c;
+}
+
+.anthropometry-card-body {
+  padding: 20px;
+}
+
+.anthropometry-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.anthropometry-item {
+  text-align: center;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+}
+
+.anthropometry-item h4 {
+  color: #7f8c8d;
+  font-size: 12px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.anthropometry-value {
+  font-size: 18px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.anthropometry-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .examination-header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+  }
+  
+  .filters {
+    grid-template-columns: 1fr;
+  }
+  
+  .vital-signs-grid,
+  .anthropometry-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .vital-signs-grid .vital-signs-grid,
+  .anthropometry-grid .anthropometry-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .vital-signs-card-header,
+  .anthropometry-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .vital-signs-actions,
+  .anthropometry-actions {
+    justify-content: stretch;
+  }
+  
+  .vital-signs-actions .btn,
+  .anthropometry-actions .btn {
+    flex: 1;
+  }
+}

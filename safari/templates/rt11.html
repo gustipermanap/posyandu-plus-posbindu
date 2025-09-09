@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}RT1{%endblock %}
+{% block content %}
+{% for a in RT %}
+<section id="about" class="about section-bg">
+  <div class="container">
+    <div class="section-title" data-aos="fade-up">
+      <h3>Selebihnya <span>Tentang Kami</span></h3>
+      <p>
+
+      </p>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+
+        {% if a.about %}
+        <img src="{{ a.about.url }}" class="img-fluid" alt="" />
+        {% else %}
+        <!-- Gambar tidak tersedia -->
+        {% endif %}
+      </div>
+      <div class="col-lg-6 pt-4 pt-lg-0 content d-flex flex-column justify-content-center" data-aos="fade-up"
+        data-aos-delay="100">
+        <p class="fst-italic">
+          {{a.text | safe }}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="visi-misi" class="visi-misi">
+  <div class="container" data-aos="fade-up">
+    {% for a in RT %}
+    <div class="section-title" data-aos="fade-up">
+      {% if a.judul %}
+      <h3>{{a.judul}}</h3>
+      {% else %}
+      <!-- Gambar tidak tersedia -->
+      {% endif %}
+
+      <br>
+      <br>
+      <div class="row">
+        <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+          <p class="fst-italic">
+            {{a.contentkanan|safe}}
+          </p>
+        </div>
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+          <p class="fst-italic">
+            {{a.contentkiri|safe}}
+          </p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section id="team" class="team section-bg">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-title">
+      <h3>Struktur <span>Pengurus</span></h3>
+    </div>
+
+    <div class="row">
+
+      <div class="d-flex align-items-center" data-aos="fade-up" data-aos-delay="100">
+        <div class="member">
+          <div class="member-img">
+            {% if a.image %}
+            <img src="{{ a.image.url }}" class="img-fluid" alt="">
+            {% else %}
+            <!-- Gambar tidak tersedia -->
+            {% endif %}
+          </div>
+          <div class="member-info">
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,238 @@
+version: '3.8'
+
+services:
+  # Shared Database
+  shared-database:
+    image: postgres:15-alpine
+    container_name: posyandu-database
+    environment:
+      POSTGRES_DB: posyandu_shared
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - posyandu-network
+
+  # Auth Service
+  auth-service:
+    build: ./posyandu/auth-service
+    container_name: posyandu-auth-service
+    environment:
+      - DEBUG=True
+      - DB_NAME=posyandu_auth
+      - DB_USER=postgres
+      - DB_PASSWORD=password
+      - DB_HOST=shared-database
+      - DB_PORT=5432
+    ports:
+      - "8001:8001"
+    depends_on:
+      - shared-database
+    networks:
+      - posyandu-network
+    volumes:
+      - ./mediafiles:/app/mediafiles
+
+  # Posyandu Service
+  posyandu-service:
+    build: ./posyandu/posyandu-service
+    container_name: posyandu-posyandu-service
+    environment:
+      - DEBUG=True
+      - DB_NAME=posyandu_posyandu
+      - DB_USER=postgres
+      - DB_PASSWORD=password
+      - DB_HOST=shared-database
+      - DB_PORT=5432
+      - AUTH_SERVICE_URL=http://auth-service:8001
+    ports:
+      - "8002:8002"
+    depends_on:
+      - shared-database
+      - auth-service
+    networks:
+      - posyandu-network
+
+  # Balita Service
+  balita-service:
+    build: ./posyandu/balita-service
+    container_name: posyandu-balita-service
+    environment:
+      - DEBUG=True
+      - DB_NAME=posyandu_balita
+      - DB_USER=postgres
+      - DB_PASSWORD=password
+      - DB_HOST=shared-database
+      - DB_PORT=5432
+      - AUTH_SERVICE_URL=http://auth-service:8001
+      - POSYANDU_SERVICE_URL=http://posyandu-service:8002
+    ports:
+      - "8003:8003"
+    depends_on:
+      - shared-database
+      - auth-service
+    networks:
+      - posyandu-network
+
+  # Ibu Hamil Service
+  ibu-hamil-service:
+    build: ./posyandu/ibu-hamil-service
+    container_name: posyandu-ibu-hamil-service
+    environment:
+      - DEBUG=True
+      - DB_NAME=posyandu_ibu_hamil
+      - DB_USER=postgres
+      - DB_PASSWORD=password
+      - DB_HOST=shared-database
+      - DB_PORT=5432
+      - AUTH_SERVICE_URL=http://auth-service:8001
+      - POSYANDU_SERVICE_URL=http://posyandu-service:8002
+    ports:
+      - "8004:8004"
+    depends_on:
+      - shared-database
+      - auth-service
+    networks:
+      - posyandu-network
+
+  # Imunisasi Service
+  imunisasi-service:
+    build: ./posyandu/imunisasi-service
+    container_name: posyandu-imunisasi-service
+    environment:
+      - DEBUG=True
+      - DB_NAME=posyandu_imunisasi
+      - DB_USER=postgres
+      - DB_PASSWORD=password
+      - DB_HOST=shared-database
+      - DB_PORT=5432
+      - AUTH_SERVICE_URL=http://auth-service:8001
+      - POSYANDU_SERVICE_URL=http://posyandu-service:8002
+      - BALITA_SERVICE_URL=http://balita-service:8003
+    ports:
+      - "9010:8005"
+    depends_on:
+      - shared-database
+      - auth-service
+    networks:
+      - posyandu-network
+
+  # KB Service
+  kb-service:
+    build: ./posyandu/kb-service
+    container_name: posyandu-kb-service
+    environment:
+      - DEBUG=True
+      - DB_NAME=posyandu_kb
+      - DB_USER=postgres
+      - DB_PASSWORD=password
+      - DB_HOST=shared-database
+      - DB_PORT=5432
+      - AUTH_SERVICE_URL=http://auth-service:8001
+      - POSYANDU_SERVICE_URL=http://posyandu-service:8002
+    ports:
+      - "9011:8006"
+    depends_on:
+      - shared-database
+      - auth-service
+    networks:
+      - posyandu-network
+
+  # Vitamin Service
+  vitamin-service:
+    build: ./posyandu/vitamin-service
+    container_name: posyandu-vitamin-service
+    environment:
+      - DEBUG=True
+      - DB_NAME=posyandu_vitamin
+      - DB_USER=postgres
+      - DB_PASSWORD=password
+      - DB_HOST=shared-database
+      - DB_PORT=5432
+      - AUTH_SERVICE_URL=http://auth-service:8001
+      - POSYANDU_SERVICE_URL=http://posyandu-service:8002
+    ports:
+      - "9012:8007"
+    depends_on:
+      - shared-database
+      - auth-service
+    networks:
+      - posyandu-network
+
+  # Rujukan Service
+  rujukan-service:
+    build: ./posyandu/rujukan-service
+    container_name: posyandu-rujukan-service
+    environment:
+      - DEBUG=True
+      - DB_NAME=posyandu_rujukan
+      - DB_USER=postgres
+      - DB_PASSWORD=password
+      - DB_HOST=shared-database
+      - DB_PORT=5432
+      - AUTH_SERVICE_URL=http://auth-service:8001
+      - POSYANDU_SERVICE_URL=http://posyandu-service:8002
+    ports:
+      - "9013:8008"
+    depends_on:
+      - shared-database
+      - auth-service
+    networks:
+      - posyandu-network
+
+  # Laporan Service
+  laporan-service:
+    build: ./posyandu/laporan-service
+    container_name: posyandu-laporan-service
+    environment:
+      - DEBUG=True
+      - DB_NAME=posyandu_laporan
+      - DB_USER=postgres
+      - DB_PASSWORD=password
+      - DB_HOST=shared-database
+      - DB_PORT=5432
+      - AUTH_SERVICE_URL=http://auth-service:8001
+      - POSYANDU_SERVICE_URL=http://posyandu-service:8002
+    ports:
+      - "9014:8009"
+    depends_on:
+      - shared-database
+      - auth-service
+    networks:
+      - posyandu-network
+
+
+  # API Gateway
+  api-gateway:
+    build: ./posyandu/api-gateway
+    container_name: posyandu-api-gateway
+    ports:
+      - "80:80"
+    depends_on:
+      - auth-service
+      - posyandu-service
+    networks:
+      - posyandu-network
+
+  # Frontend
+  frontend:
+    build: ./posyandu/posyandu-frontend
+    container_name: posyandu-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://localhost
+    depends_on:
+      - api-gateway
+    networks:
+      - posyandu-network
+
+volumes:
+  postgres_data:
+
+networks:
+  posyandu-network:
+    driver: bridge

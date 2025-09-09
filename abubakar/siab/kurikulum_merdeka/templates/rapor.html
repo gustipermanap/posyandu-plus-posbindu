@@ -1,0 +1,15 @@
+<h1>Rapor {{ request.user.username }}</h1>
+<table>
+    <tr>
+        <th>Mata Pelajaran</th>
+        <th>Nilai Angka</th>
+        <th>Nilai Huruf</th>
+    </tr>
+    {% for nilai in nilai_siswa %}
+    <tr>
+        <td>{{ nilai.mata_pelajaran.nama }}</td>
+        <td>{{ nilai.nilai_angka }}</td>
+        <td>{{ nilai.nilai_huruf }}</td>
+    </tr>
+    {% endfor %}
+</table>

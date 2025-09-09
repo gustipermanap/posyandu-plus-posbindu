@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Event{%endblock %}
+{% block content %}
+
+<section id="featured-services" class="featured-services">
+  <div class="container" data-aos="fade-up">
+    <div class="section-title">
+      
+      <h3>Info <span>Terbaru</span></h3>
+    </div>
+    <div class="row">
+      <style>
+        {
+          % comment %
+        }
+
+        h4 {
+          color: #010912;
+        }
+
+          {
+          % endcomment %
+        }
+
+        a {
+          color: #010912;
+        }
+
+        p {
+          display: -webkit-box;
+          max-width: 200px;
+          -webkit-line-clamp: 4;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+      </style>
+      {% for a in acara %}
+
+      <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-4 mb-lg-0 justify-content-center">
+          <style>
+          .fixed-size-img {
+            height: 200px;
+            width: 300px;
+            object-fit: cover;
+          }
+        </style>
+
+        <div class="row icon-box" data-aos="fade-up" data-aos-delay="100">
+          <a href="{% url 'list-acara' a.slug %}">
+          <div class="text-center">
+            <img class="img-fluid fixed-size-img" src="{{ a.thumbnail.url }}" style="max-height: 120px;">
+          </div>
+          <br>
+          
+          <h4 class="text-center title">
+            {{ a.title }}
+            <style="max-width: 150px;">
+          </h4>
+
+          <p class="description">{{ a.content|safe|truncatechars:200 }}</p>
+        </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+
+{% endblock %}

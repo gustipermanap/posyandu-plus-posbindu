@@ -1,0 +1,231 @@
+version: '3.8'
+
+services:
+  # Shared Database
+  shared-database:
+    image: postgres:15
+    container_name: posbindu-database
+    environment:
+      POSTGRES_DB: posbindu_shared
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5433:5432"
+    volumes:
+      - posbindu_db_data:/var/lib/postgresql/data
+    networks:
+      - posbindu-network
+
+  # Participant Service
+  participant-service:
+    build: ./participant-service
+    container_name: posbindu-participant-service
+    environment:
+      - DEBUG=True
+      - DB_NAME=posbindu_participant
+      - DB_USER=postgres
+      - DB_PASSWORD=password
+      - DB_HOST=shared-database
+      - DB_PORT=5432
+      - AUTH_SERVICE_URL=http://auth-service:8001
+    ports:
+      - "8005:8005"
+    depends_on:
+      - shared-database
+    networks:
+      - posbindu-network
+
+  # Screening Service
+  screening-service:
+    build: ./screening-service
+    container_name: posbindu-screening-service
+    environment:
+      - DEBUG=True
+      - DB_NAME=posbindu_screening
+      - DB_USER=postgres
+      - DB_PASSWORD=password
+      - DB_HOST=shared-database
+      - DB_PORT=5432
+      - AUTH_SERVICE_URL=http://auth-service:8001
+      - PARTICIPANT_SERVICE_URL=http://participant-service:8005
+    ports:
+      - "8006:8006"
+    depends_on:
+      - shared-database
+      - participant-service
+    networks:
+      - posbindu-network
+
+  # Examination Service
+  examination-service:
+    build: ./examination-service
+    container_name: posbindu-examination-service
+    environment:
+      - DEBUG=True
+      - DB_NAME=posbindu_examination
+      - DB_USER=postgres
+      - DB_PASSWORD=password
+      - DB_HOST=shared-database
+      - DB_PORT=5432
+      - AUTH_SERVICE_URL=http://auth-service:8001
+      - SCREENING_SERVICE_URL=http://screening-service:8006
+    ports:
+      - "8007:8007"
+    depends_on:
+      - shared-database
+      - screening-service
+    networks:
+      - posbindu-network
+
+  # Lab Service
+  lab-service:
+    build: ./lab-service
+    container_name: posbindu-lab-service
+    environment:
+      - DEBUG=True
+      - DB_NAME=posbindu_lab
+      - DB_USER=postgres
+      - DB_PASSWORD=password
+      - DB_HOST=shared-database
+      - DB_PORT=5432
+      - AUTH_SERVICE_URL=http://auth-service:8001
+      - EXAMINATION_SERVICE_URL=http://examination-service:8007
+    ports:
+      - "8008:8008"
+    depends_on:
+      - shared-database
+      - examination-service
+    networks:
+      - posbindu-network
+
+  # Risk Assessment Service
+  risk-assessment-service:
+    build: ./risk-assessment-service
+    container_name: posbindu-risk-assessment-service
+    environment:
+      - DEBUG=True
+      - DB_NAME=posbindu_risk_assessment
+      - DB_USER=postgres
+      - DB_PASSWORD=password
+      - DB_HOST=shared-database
+      - DB_PORT=5432
+      - AUTH_SERVICE_URL=http://auth-service:8001
+      - EXAMINATION_SERVICE_URL=http://examination-service:8007
+    ports:
+      - "8009:8009"
+    depends_on:
+      - shared-database
+      - examination-service
+    networks:
+      - posbindu-network
+
+  # Intervention Service
+  intervention-service:
+    build: ./intervention-service
+    container_name: posbindu-intervention-service
+    environment:
+      - DEBUG=True
+      - DB_NAME=posbindu_intervention
+      - DB_USER=postgres
+      - DB_PASSWORD=password
+      - DB_HOST=shared-database
+      - DB_PORT=5432
+      - AUTH_SERVICE_URL=http://auth-service:8001
+      - RISK_ASSESSMENT_SERVICE_URL=http://risk-assessment-service:8009
+    ports:
+      - "8010:8010"
+    depends_on:
+      - shared-database
+      - risk-assessment-service
+    networks:
+      - posbindu-network
+
+  # Referral Service
+  referral-service:
+    build: ./referral-service
+    container_name: posbindu-referral-service
+    environment:
+      - DEBUG=True
+      - DB_NAME=posbindu_referral
+      - DB_USER=postgres
+      - DB_PASSWORD=password
+      - DB_HOST=shared-database
+      - DB_PORT=5432
+      - AUTH_SERVICE_URL=http://auth-service:8001
+      - INTERVENTION_SERVICE_URL=http://intervention-service:8010
+    ports:
+      - "8011:8011"
+    depends_on:
+      - shared-database
+      - intervention-service
+    networks:
+      - posbindu-network
+
+  # Reporting Service
+  reporting-service:
+    build: ./reporting-service
+    container_name: posbindu-reporting-service
+    environment:
+      - DEBUG=True
+      - DB_NAME=posbindu_reporting
+      - DB_USER=postgres
+      - DB_PASSWORD=password
+      - DB_HOST=shared-database
+      - DB_PORT=5432
+      - AUTH_SERVICE_URL=http://auth-service:8001
+      - PARTICIPANT_SERVICE_URL=http://participant-service:8005
+      - SCREENING_SERVICE_URL=http://screening-service:8006
+      - EXAMINATION_SERVICE_URL=http://examination-service:8007
+      - LAB_SERVICE_URL=http://lab-service:8008
+      - RISK_ASSESSMENT_SERVICE_URL=http://risk-assessment-service:8009
+      - INTERVENTION_SERVICE_URL=http://intervention-service:8010
+      - REFERRAL_SERVICE_URL=http://referral-service:8011
+    ports:
+      - "8012:8012"
+    depends_on:
+      - shared-database
+      - participant-service
+      - screening-service
+      - examination-service
+      - lab-service
+      - risk-assessment-service
+      - intervention-service
+      - referral-service
+    networks:
+      - posbindu-network
+
+  # API Gateway
+  api-gateway:
+    build: ./api-gateway
+    container_name: posbindu-api-gateway
+    ports:
+      - "8080:80"
+    depends_on:
+      - participant-service
+      - screening-service
+      - examination-service
+      - lab-service
+      - risk-assessment-service
+      - intervention-service
+      - referral-service
+      - reporting-service
+    networks:
+      - posbindu-network
+
+  # Frontend
+  posbindu-frontend:
+    build: ./posbindu-frontend
+    container_name: posbindu-frontend
+    ports:
+      - "3001:3000"
+    depends_on:
+      - api-gateway
+    networks:
+      - posbindu-network
+
+volumes:
+  posbindu_db_data:
+
+networks:
+  posbindu-network:
+    driver: bridge
