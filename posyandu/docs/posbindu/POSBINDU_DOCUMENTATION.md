@@ -101,8 +101,8 @@
 
 1. **Clone Repository**
    ```bash
-   git clone https://github.com/gustipermanap/posyanduplus.git
-   cd posyanduplus/posbindu
+   git clone https://github.com/gustipermanap/posyandu-plus-posbindu.git
+   cd posyandu-plus-posbindu/posbindu
    ```
 
 2. **Setup Environment**

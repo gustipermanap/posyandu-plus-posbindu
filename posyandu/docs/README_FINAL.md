@@ -52,8 +52,8 @@ Aplikasi **Posyandu +** adalah sistem microservices yang dirancang khusus untuk 
 
 1. **Clone Repository**
    ```bash
-   git clone https://github.com/gustipermanap/posyanduplus.git
-   cd posyanduplus
+   git clone https://github.com/gustipermanap/posyandu-plus-posbindu.git
+   cd posyandu-plus-posbindu
    ```
 
 2. **Setup Environment**

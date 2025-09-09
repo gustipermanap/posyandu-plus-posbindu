@@ -5,8 +5,8 @@ Terima kasih ingin berkontribusi ke Posyandu+ monorepo! Dokumentasi ini menjelas
 ## Setup Lingkungan
 1. Fork repo ini lalu clone:
    ```bash
-   git clone https://github.com/<username>/posyanduplus.git
-   cd posyanduplus
+   git clone https://github.com/<username>/posyandu-plus-posbindu.git
+   cd posyandu-plus-posbindu
    ```
 2. Siapkan environment (opsional):
    ```bash

@@ -218,8 +218,8 @@ Frontend POS BINDU PTM sudah **lengkap dan siap digunakan** dengan:
 
 ```bash
 # Clone repository
-git clone https://github.com/gustipermanap/posyanduplus.git
-cd posyanduplus/posbindu/posbindu-frontend
+git clone https://github.com/gustipermanap/posyandu-plus-posbindu.git
+cd posyandu-plus-posbindu/posbindu/posbindu-frontend
 
 # Install dependencies
 npm install

@@ -11,13 +11,13 @@ check_posyandu() {
     echo "============================="
     
     # Check if containers are running
-    if docker-compose ps | grep -q "Up"; then
+    if docker compose ps | grep -q "Up"; then
         echo "✅ Posyandu+ containers are running"
         
         # Show running containers
         echo ""
         echo "📋 Running Containers:"
-        docker-compose ps --format "table {{.Name}}\t{{.Status}}\t{{.Ports}}"
+        docker compose ps --format "table {{.Name}}\t{{.Status}}\t{{.Ports}}"
         
         # Check API endpoints
         echo ""
@@ -113,13 +113,13 @@ check_posbindu() {
     echo "================================="
     
     # Check if containers are running
-    if cd posbindu && docker-compose ps | grep -q "Up"; then
+    if cd posbindu && docker compose ps | grep -q "Up"; then
         echo "✅ POS BINDU PTM containers are running"
         
         # Show running containers
         echo ""
         echo "📋 Running Containers:"
-        docker-compose ps --format "table {{.Name}}\t{{.Status}}\t{{.Ports}}"
+        docker compose ps --format "table {{.Name}}\t{{.Status}}\t{{.Ports}}"
         
         # Check API endpoints
         echo ""

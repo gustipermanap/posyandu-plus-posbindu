@@ -38,12 +38,12 @@ stop_containers() {
     
     # Stop Posyandu+ containers
     echo "  - Stopping Posyandu+ containers..."
-    docker-compose down 2>/dev/null || true
+    docker compose down 2>/dev/null || true
     
     # Stop POS BINDU PTM containers
     echo "  - Stopping POS BINDU PTM containers..."
     cd posbindu
-    docker-compose down 2>/dev/null || true
+    docker compose down 2>/dev/null || true
     cd ..
     
     echo "✅ All containers stopped"

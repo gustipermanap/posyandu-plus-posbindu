@@ -2,6 +2,14 @@
 
 Aplikasi microservices lengkap untuk deteksi dini dan pencegahan PTM di masyarakat.
 
+## 📸 Screenshot Aplikasi
+
+![Login POS BINDU](images/login%20posbindu.png)
+*Halaman login POS BINDU PTM*
+
+![Dashboard POS BINDU](images/dashboard%20posyandu1.png)
+*Dashboard utama POS BINDU PTM dengan statistik real-time*
+
 ## 🎯 Overview
 
 **POS BINDU PTM** adalah aplikasi microservices yang fokus pada skrining, deteksi dini, dan manajemen faktor risiko PTM di masyarakat. Aplikasi ini mengintegrasikan semua aspek pelayanan POS BINDU PTM mulai dari registrasi peserta, skrining, pemeriksaan fisik, laboratorium, penilaian risiko, intervensi, rujukan, hingga laporan.

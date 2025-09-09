@@ -2,6 +2,12 @@
 
 Aplikasi Posyandu + telah diubah menjadi arsitektur microservices dan terintegrasi dengan aplikasi POS BINDU PTM untuk deteksi dini dan pencegahan PTM di masyarakat.
 
+## 📸 Screenshot Aplikasi
+
+Lihat folder [images/](images/) untuk screenshot lengkap dari kedua aplikasi:
+- [Screenshot Posyandu+](images/)
+- [Screenshot POS BINDU PTM](images/)
+
 ## 🏗️ Arsitektur Microservices
 
 ### Posyandu + Services
@@ -65,8 +71,8 @@ Aplikasi Posyandu + telah diubah menjadi arsitektur microservices dan terintegra
 
 1. **Clone repository**
    ```bash
-   git clone https://github.com/gustipermanap/posyanduplus.git
-   cd posyanduplus
+   git clone https://github.com/gustipermanap/posyandu-plus-posbindu.git
+   cd posyandu-plus-posbindu
    ```
 
 2. **Jalankan semua services**

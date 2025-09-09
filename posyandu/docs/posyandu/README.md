@@ -2,6 +2,35 @@
 
 Aplikasi microservices lengkap untuk manajemen Posyandu dengan fokus pada kesehatan ibu dan anak.
 
+## 📸 Screenshot Aplikasi
+
+![Dashboard Posyandu](images/dashboard.png)
+*Dashboard utama Posyandu+ dengan statistik real-time*
+
+![Login Posyandu](images/login%20posyandu.png)
+*Halaman login Posyandu+*
+
+![Modul Balita](images/balita.png)
+*Modul manajemen data balita*
+
+![Modul Ibu Hamil](images/ibu%20hamil.png)
+*Modul manajemen data ibu hamil*
+
+![Modul Imunisasi](images/imunisasi.png)
+*Modul pencatatan imunisasi*
+
+![Modul KB](images/KB.png)
+*Modul keluarga berencana*
+
+![Modul Vitamin](images/vitamin.png)
+*Modul pemberian vitamin*
+
+![Modul Rujukan](images/rujukan.png)
+*Modul sistem rujukan*
+
+![Modul Laporan](images/laporan.png)
+*Modul laporan dan statistik*
+
 ## 🎯 Overview
 
 **Posyandu +** adalah aplikasi microservices yang fokus pada pelayanan kesehatan ibu dan anak di Posyandu. Aplikasi ini mengintegrasikan semua aspek pelayanan Posyandu mulai dari registrasi peserta, pemeriksaan balita, imunisasi, KB, vitamin & PMT, hingga rujukan dan laporan.
@@ -38,8 +67,8 @@ Aplikasi microservices lengkap untuk manajemen Posyandu dengan fokus pada keseha
 
 1. **Clone Repository**
    ```bash
-   git clone https://github.com/gustipermanap/posyanduplus.git
-   cd posyanduplus
+   git clone https://github.com/gustipermanap/posyandu-plus-posbindu.git
+   cd posyandu-plus-posbindu
    ```
 
 2. **Start Services**

@@ -2,6 +2,38 @@
 
 Posyandu+ telah dipecah menjadi arsitektur microservices dan terintegrasi dengan POS BINDU PTM. Repo ini berisi semua service backend (Django), frontend (React), API Gateway (Nginx), serta skrip otomatisasi untuk development, testing, dan operasi harian.
 
+### Screenshot Aplikasi
+
+![Dashboard Posyandu](docs/images/dashboard.png)
+*Dashboard utama Posyandu+*
+
+![Login Posyandu](docs/images/login%20posyandu.png)
+*Halaman login Posyandu+*
+
+![Login POS BINDU](docs/images/login%20posbindu.png)
+*Halaman login POS BINDU PTM*
+
+![Modul Balita](docs/images/balita.png)
+*Modul manajemen data balita*
+
+![Modul Ibu Hamil](docs/images/ibu%20hamil.png)
+*Modul manajemen data ibu hamil*
+
+![Modul Imunisasi](docs/images/imunisasi.png)
+*Modul pencatatan imunisasi*
+
+![Modul KB](docs/images/KB.png)
+*Modul keluarga berencana*
+
+![Modul Vitamin](docs/images/vitamin.png)
+*Modul pemberian vitamin*
+
+![Modul Rujukan](docs/images/rujukan.png)
+*Modul sistem rujukan*
+
+![Modul Laporan](docs/images/laporan.png)
+*Modul laporan dan statistik*
+
 ### Isi Utama
 - Arsitektur microservices untuk Posyandu+ dan POS BINDU PTM
 - Orkestrasi kontainer via Docker Compose
