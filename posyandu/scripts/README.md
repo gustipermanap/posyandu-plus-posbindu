@@ -164,8 +164,8 @@ Setelah services berjalan, Anda dapat mengakses:
 ### 1. Setup Awal
 ```bash
 # Clone repository
-git clone https://github.com/gustipermanap/posyanduplus.git
-cd posyanduplus
+git clone https://github.com/gustipermanap/posyandu-plus-posbindu.git
+cd posyandu-plus-posbindu
 
 # Setup Docker environment
 ./scripts/manage.sh --setup
